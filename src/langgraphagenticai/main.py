@@ -3,6 +3,7 @@ import streamlit as st
 import json
 from src.langgraphagenticai.ui.streamlitui.loadui import LoadStreamlitUI
 from src.langgraphagenticai.LLMS.groqllm import GroqLLM
+from src.langgraphagenticai.LLMS.geminillm import GeminiLLM
 from src.langgraphagenticai.graph.graph_builder import GraphBuilder
 from src.langgraphagenticai.ui.streamlitui.display_result import DisplayResultStreamlit
 
@@ -32,8 +33,12 @@ def load_langgraph_agenticai_app():
     if user_message:
             try:
                 # Configure LLM
-                obj_llm_config = GroqLLM(user_controls_input=user_input)
-                model = obj_llm_config.get_llm_model()
+                if user_input.get('selected_llm') == 'Groq':
+                    obj_llm_config = GroqLLM(user_controls_input=user_input)
+                    model = obj_llm_config.get_groq_llm_model()
+                elif user_input.get('selected_llm') == 'Gemini':
+                    obj_llm_config = GeminiLLM(user_controls_input=user_input)
+                    model = obj_llm_config.get_gemini_llm_model()
                 
                 if not model:
                     st.error("Error: LLM model could not be initialized.")

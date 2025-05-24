@@ -49,6 +49,18 @@ class LoadStreamlitUI:
                 # Validate API key
                 if not self.user_control["GROQ_API_KEY"]:
                     st.warning("⚠️ Please enter your GROQ API key to proceed. Don't have? refer : https://console.groq.com/keys ")
+            
+            elif self.user_control["selected_llm"] == 'Gemini':
+                # Model selection
+                model_options = self.config.get_gemini_model_options()
+                
+                self.user_control["selected_gemini_model"] = st.selectbox("Select Model", model_options)
+                # API key input
+                self.user_control["GEMINI_API_KEY"] = st.session_state["GEMINI_API_KEY"] = st.text_input("API Key",
+                                                                                                      type="password")
+                # Validate API key
+                if not self.user_control["GEMINI_API_KEY"]:
+                    st.warning("⚠️ Please enter your Gemini API key to proceed. Don't have? refer : https://console.cloud.google.com/apis/credentials")
                    
             
             # Use case selection
