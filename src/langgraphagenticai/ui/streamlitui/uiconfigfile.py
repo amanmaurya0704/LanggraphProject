@@ -1,9 +1,9 @@
 from configparser import ConfigParser
 
 class Config:
-    def __init__(self, config_file='./src/langgraphagenticai/ui/streamlitui/uiconfigfile.ini'):
+    def __init__(self, config_file=r"C:\Users\amanm\Downloads\Machine Learning\Langgraph_Project\src\langgraphagenticai\ui\streamlitui\uiconfigfile.ini"):
         self.config = ConfigParser()
-        self.config.read(self.config_file)
+        self.config.read(config_file)
 
     def get_llm_options(self):
         return self.config["DEFAULT"].get("LLM_OPTIONS", "").split(",")
