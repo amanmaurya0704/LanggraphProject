@@ -3,7 +3,7 @@ from langgraph.prebuilt import tools_condition,ToolNode
 from langchain_core.prompts import ChatPromptTemplate
 from src.langgraphagenticai.state.state import State
 from src.langgraphagenticai.node.basic_chatbot_node import BasicChatbotNode
-from src.langgraphagenticai.node.chatbot_wiyh_tools import ChatbotWithToolNode
+from src.langgraphagenticai.node.chatbot_with_tools import ChatbotWithToolNode
 from src.langgraphagenticai.tools.searchtool import get_tools,create_tool_node
 
 
