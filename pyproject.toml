@@ -9,8 +9,11 @@ dependencies = [
     "langchain>=0.3.25",
     "langchain-community>=0.3.24",
     "langchain-groq>=0.3.2",
-    "langchain-openai>=0.3.18",
     "langgraph>=0.4.7",
     "pandas>=2.2.3",
     "streamlit>=1.45.1",
+    "langchain_core>=0.3.63",
+    "langchain-google-genai>=2.1.5"
+
 ]
+
